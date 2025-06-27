@@ -69,7 +69,7 @@ export class CreatePrivateUserDto {
 
   @IsString()
   @MaxLength(50)
-  @MaxLength(6)
+  @MinLength(6)
   @IsOptional()
   @ApiProperty({ description: "Address's user" })
   readonly address: string;

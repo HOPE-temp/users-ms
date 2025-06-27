@@ -22,13 +22,15 @@ import { Roles } from 'src/auth/decorators/roles.decorator';
 import { RoleUser } from 'src/auth/models/roles.model';
 import { RolesGuard } from 'src/auth/guards/roles.guard';
 import { FilterUsersDto } from '../dto/filter-user.dto';
+import { Public } from 'src/auth/decorators/public.decorator';
 
 @UseGuards(JwtAuthGuard, RolesGuard)
 @Controller('users')
 export class UsersController {
   constructor(private readonly usersService: UsersService) {}
 
-  @Roles(RoleUser.ADMIN)
+ // @Roles(RoleUser.ADMIN)
+  @Public()
   @Post()
   @ApiOperation({ summary: 'Register user' })
   create(@Body() createUserDto: CreateUserDto) {
