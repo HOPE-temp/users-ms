@@ -44,4 +44,5 @@ export class PublicUser {
     name: 'updated_at',
   })
   updatedAt?: Date;
+  
 }

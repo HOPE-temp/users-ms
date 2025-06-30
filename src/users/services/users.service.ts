@@ -77,7 +77,6 @@ export class UsersService {
       relations: ['publicInfo', 'privateInfo'],
       take: 10,
       skip: 0,
-      withDeleted: true,
     };
 
     if (params) {
@@ -93,6 +92,7 @@ export class UsersService {
     const user = await this.userRepo.findOne({
       where: { id },
       relations: ['publicInfo', 'privateInfo'],
+      withDeleted: true, //todos los usuarios incluyendo los eliminados!!
     });
 
     if (!user) {
@@ -146,6 +146,6 @@ export class UsersService {
   }
 
   remove(id: number) {
-    return this.publicUserRepo.softDelete(id);
+    return this.userRepo.softDelete(id);
   }
 }

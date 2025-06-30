@@ -27,7 +27,6 @@ export class User {
   })
   privateInfo: PrivateUser;
 
-
   @CreateDateColumn({
     name: 'created_at',
   })

@@ -47,7 +47,8 @@ export class UsersController {
   @Roles(RoleUser.ADMIN)
   @Get(':id')
   @ApiOperation({ summary: 'Get a user by id' })
-  findOne(@Param('id', ParseIntPipe) id: number) {
+  findOne(
+    @Param('id', ParseIntPipe) id: number) {
     return this.usersService.findOne(id);
   }
 

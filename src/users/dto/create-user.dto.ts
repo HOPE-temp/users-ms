@@ -23,7 +23,7 @@ export class CreatePublicUserDto {
   readonly username: string;
 
   @IsUrl()
-  @MaxLength(50)
+  @MaxLength(300)
   @ApiProperty({ description: "Url's avatar" })
   @IsOptional()
   readonly avatar: string;
@@ -39,14 +39,14 @@ export class CreatePublicUserDto {
 export class CreatePrivateUserDto {
   @IsString()
   @MaxLength(50)
-  @MinLength(6)
+  @MinLength(3)
   @IsNotEmpty()
   @ApiProperty({ description: 'Complete first of user' })
   readonly firstName: string;
 
   @IsString()
   @MaxLength(50)
-  @MinLength(6)
+  @MinLength(3)
   @IsNotEmpty()
   @ApiProperty({ description: 'Complete last name of user' })
   readonly lastName: string;
